@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-export const fetchPosts = (id) => {
+export const fetchItem = (id) => {
   return axios.get(`http://jsonplaceholder.typicode.com/posts/${id}`)
-    .then(res => Promise.resolve(res.data.data))
+    .then(res => {
+      return Promise.resolve(res.data)
+    })
 }

@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Baz = () => import('./src/components/Baz.vue')
-const Foo = () => import('./src/components/Foo.vue') 
-
 Vue.use(Router)
 
 export function createRouter () {
@@ -16,11 +13,15 @@ export function createRouter () {
       },
       {
         path: '/baz',
-        component: Baz
+        component: () => import('./src/components/Baz.vue')
       },
       {
         path: '/foo',
-        component: Foo
+        component: () => import('./src/components/Foo.vue') 
+      },
+      {
+        path: '/item/:id',
+        component: () => import('./src/components/Item.vue')
       }
     ]
   })

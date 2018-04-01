@@ -8,7 +8,7 @@ import { sync } from 'vuex-router-sync'
 // router和store实例
 // 在服务器中，如果只创建一个vue单例容易造成数据污染，各组件数据共享
 export function createApp () {
-  const Routerr = createRouter()
+  const router = createRouter()
   const store = createStore()
 
   // 同步路由状态(route state)到store

@@ -1,11 +1,11 @@
-import { createApp } from './app'
+import { createApp } from '../app'
 
 export default context => {
   // 因为有可能会是异步路由钩子函数或组件，所以返回一个promsie
   // 以便服务器能够等待所有的内容渲染前，就已经准备就绪
 
-  return new Promise((resovle, reject) => {   
-    const { app, router } = createApp()
+  return new Promise((resolve, reject) => {   
+    const { app, router, store } = createApp()
 
     // 设置服务器端router的位置
     router.push(context.url)
@@ -24,7 +24,7 @@ export default context => {
         if (Component.asyncData) {
           return Component.asyncData({
             store,
-            route: router.currentRote
+            route: router.currentRoute
           })
         }
       })).then(() => {
