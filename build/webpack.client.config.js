@@ -34,3 +34,5 @@ const config = merge(base, {
     new VueSSRClientPlugin()
   ]
 })
+
+module.exports = config
